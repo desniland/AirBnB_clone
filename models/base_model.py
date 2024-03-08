@@ -19,9 +19,9 @@ class BaseModel:
                 if key != "__class__":
                     setattr(self, key, value)
         else:
-            self.id = str(uuid.uuid4())  # generate a unique id
             self.created_at = datetime.now()  # date/time when is created
             self.updated_at = datetime.now()  # date when it's updated
+            self.id = str(uuid.uuid4())  # generate a unique id
             models.storage.new(self)
 
     def __str__(self):
